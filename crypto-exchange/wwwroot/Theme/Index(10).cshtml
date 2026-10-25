@@ -1,0 +1,114 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>مبدل ارز دیجیتال</title>
+    <link href="~/theme/converter.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/css/converter.css" asp-append-version="true" />
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="brand"><i>₿</i><div><b>مبدل ارز دیجیتال</b><small>تبدیل هوشمندتر</small></div></div>
+    <nav>
+      <a class="on" href="#"><span>⌂</span>خانه</a>
+      <a href="#conv"><span>⇄</span>مبدل</a>
+      <a href="#rates"><span>%</span>نرخ‌ها</a>
+      <a href="#"><span>◷</span>تاریخچه</a>
+      <a href="#"><span>☆</span>علاقه‌مندی‌ها</a>
+      <a href="#"><span>⚙</span>تنظیمات</a>
+    </nav>
+    <div class="api-note"><span class="dot"></span>قیمت‌های لحظه‌ای<br>منبع داده: CoinGecko</div>
+  </aside>
+
+  <div>
+    <header class="top">
+      <input id="search" type="search" placeholder="جستجوی ارز (مثلا BTC، ETH، SOL)" aria-label="جستجوی ارز">
+      <div class="user"><i>👤</i><span>مهمان</span></div>
+    </header>
+
+    <main>
+      <section class="card hero" id="conv">
+        <div>
+          <small class="welcome">به مبدل ارز دیجیتال خوش آمدید</small>
+          <h1>ارزهای دیجیتال را<br>به هم تبدیل کنید</h1>
+          <p>آخرین قیمت‌ها را ببینید و بین ارزهای دیجیتال مختلف به‌صورت لحظه‌ای تبدیل کنید.</p>
+          <div class="meta"><span>آخرین به‌روزرسانی: <b id="updated" class="ltr">—</b></span><span><span class="dot"></span>قیمت زنده</span></div>
+        </div>
+        <div class="conv">
+          <div class="field">
+            <label for="amount">از</label>
+            <div class="row">
+              <img class="ico" id="icoFrom" alt="">
+              <select id="from" aria-label="ارز مبدا"></select>
+              <input id="amount" type="number" value="1" min="0" step="any" inputmode="decimal">
+            </div>
+          </div>
+          <button class="swap" id="swap" aria-label="جابجایی ارزها">⇅</button>
+          <div class="field">
+            <label for="result">به</label>
+            <div class="row">
+              <img class="ico" id="icoTo" alt="">
+              <select id="to" aria-label="ارز مقصد"></select>
+              <input id="result" readonly>
+            </div>
+          </div>
+          <div class="rate"><span>نرخ تبدیل</span><span id="rateTxt" class="ltr">—</span></div>
+          <div class="err" id="err" role="alert"></div>
+          <button class="btn" id="go">تبدیل کن</button>
+        </div>
+      </section>
+
+      <section class="card globe">
+        <h3>بازار جهانی ارز دیجیتال</h3>
+        <p id="globalTxt">در حال دریافت اطلاعات…</p>
+      </section>
+
+      <section class="card chart">
+        <div class="ch-head">
+          <div class="pair"><img id="chImg" alt=""><div><b id="chPair" class="ltr">—</b><br><small id="chName">—</small></div></div>
+          <div class="rng" id="rng">
+            <button data-d="1" class="on">1D</button><button data-d="7">1W</button><button data-d="30">1M</button>
+            <button data-d="90">3M</button><button data-d="365">1Y</button><button data-d="max">ALL</button>
+          </div>
+        </div>
+        <div class="price"><b id="chPrice">—</b><span id="chPct"></span></div>
+        <div class="plot">
+          <canvas id="cv" aria-label="نمودار قیمت"></canvas>
+          <div class="stats">
+            <div><small>بیشترین</small><b class="up" id="hi">—</b></div>
+            <div><small>کمترین</small><b class="down" id="lo">—</b></div>
+            <div><small>تغییر بازه</small><b id="chg">—</b></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="bottom" id="rates">
+        <section class="card"><h4>ارزهای محبوب</h4><div class="pop" id="pop"></div></section>
+        <section class="card"><h4>نرخ‌های اخیر (نسبت به BTC)</h4>
+          <table><thead><tr><th>جفت</th><th class="n">نرخ</th><th class="n">تغییر</th></tr></thead><tbody id="recent"></tbody></table>
+        </section>
+        <section class="card hist"><h4>نرخ‌های تاریخی</h4>
+          <p>قیمت‌های گذشته را ببینید و روند بازار را تحلیل کنید.</p>
+          <button class="btn chart-scroll-btn">مشاهده نمودار</button>
+        </section>
+      </div>
+
+      <section class="card top-coins">
+        <h4>برترین ارزها</h4>
+        <table><thead><tr><th>ارز</th><th class="n">قیمت (USD)</th><th class="n">تغییر ۲۴س</th></tr></thead><tbody id="top"></tbody></table>
+      </section>
+    </main>
+  </div>
+</div>
+
+    <script src="~/js/converter.js" asp-append-version="true"></script>
+    <script src="~/theme/converter.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "مبدل ارز دیجیتال";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>مبدل ارز دیجیتال | Crypto Exchange</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/converter-page.css" asp-append-version="true" />
+    <link href="~/theme/crypto_converter_page/converter-page.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="@Url.Action("Index", "Home")">
+                <span class="brand-mark">₿</span>
+                <span class="brand-copy"><strong>کریپتو اکسچنج</strong><small>داشبورد بازار دیجیتال</small></span>
+            </a>
+
+            <div class="nav-caption">منوی اصلی</div>
+            <nav class="main-nav" aria-label="منوی اصلی">
+                <a class="nav-item" href="@Url.Action("Index", "Home")"><span class="nav-icon">⌂</span><span>خانه</span></a>
+                <a class="nav-item active" href="@Url.Action("Converter", "Home")" aria-current="page"><span class="nav-icon">⇄</span><span>مبدل ارز</span><span class="nav-current"></span></a>
+                <a class="nav-item" href="@Url.Action("Index", "Home")#rates"><span class="nav-icon">％</span><span>نرخ ارزها</span></a>
+                <a class="nav-item" href="#history"><span class="nav-icon">◷</span><span>تاریخچه تبدیل</span></a>
+                <a class="nav-item" href="#favorites"><span class="nav-icon">☆</span><span>علاقه‌مندی‌ها</span></a>
+            </nav>
+
+            <div class="sidebar-spacer"></div>
+            <div class="sidebar-status">
+                <span class="status-dot"></span>
+                <div><strong>وضعیت سرویس</strong><small id="serviceStatus">آماده برای اتصال</small></div>
+            </div>
+            <div class="sidebar-footer">نسخه آزمایشی · داده‌ها از CoinGecko</div>
+        </aside>
+
+        <div class="main-area">
+            <header class="topbar">
+                <div class="mobile-brand"><span class="brand-mark">₿</span><strong>کریپتو اکسچنج</strong></div>
+                <div class="breadcrumb"><span>خانه</span><span class="crumb-sep">/</span><strong>مبدل ارز</strong></div>
+                <div class="topbar-side">
+                    <span class="live-label"><span class="status-dot"></span> داده‌های بازار</span>
+                    <div class="user-avatar" aria-label="کاربر مهمان">م</div>
+                </div>
+            </header>
+
+            <main class="page-content">
+                <section class="page-heading">
+                    <div>
+                        <div class="eyebrow"><span class="eyebrow-line"></span>تبدیل سریع و ساده</div>
+                        <h1>مبدل <span>ارز دیجیتال</span></h1>
+                        <p>مقدار موردنظرت را وارد کن و نرخ تبدیل ارزهای دیجیتال را مشاهده کن.</p>
+                    </div>
+                    <div class="heading-chip"><span class="chip-icon">↗</span><span><b>نرخ بازار</b><small>بر اساس قیمت دلاری</small></span></div>
+                </section>
+
+                <section class="metric-row" aria-label="خلاصه وضعیت">
+                    <article class="metric-card"><div class="metric-icon blue">⇄</div><div><small>حالت تبدیل</small><strong>ارز به ارز</strong><span>محاسبه با نرخ بازار</span></div></article>
+                    <article class="metric-card"><div class="metric-icon green">◉</div><div><small>منبع قیمت</small><strong>CoinGecko</strong><span><i class="mini-dot"></i> دادهٔ API</span></div></article>
+                    <article class="metric-card"><div class="metric-icon purple">◷</div><div><small>آخرین به‌روزرسانی</small><strong id="updated">—</strong><span>زمان دریافت نرخ</span></div></article>
+                </section>
+
+                <div class="content-grid">
+                    <section class="panel converter-panel" id="converter">
+                        <div class="panel-heading">
+                            <div><span class="panel-kicker">CONVERTER</span><h2>تبدیل ارزها</h2><p>ارز مبدأ و مقصد را انتخاب کن.</p></div>
+                            <div class="panel-heading-icon">⇄</div>
+                        </div>
+
+                        <div class="converter-form">
+                            <div class="currency-block">
+                                <div class="field-label"><label for="amount">مقدار پرداختی</label><span>از ارز مبدأ</span></div>
+                                <div class="currency-field">
+                                    <div class="currency-select-wrap">
+                                        <img id="icoFrom" class="coin-icon" src="" alt="" />
+                                        <select id="from" aria-label="انتخاب ارز مبدأ"><option>در حال بارگذاری…</option></select>
+                                        <span class="select-chevron">⌄</span>
+                                    </div>
+                                    <div class="amount-wrap"><input id="amount" type="number" min="0" step="any" inputmode="decimal" value="1" aria-label="مقدار ارز مبدأ" /><span id="fromSymbol" class="amount-symbol">BTC</span></div>
+                                </div>
+                                <div class="quick-amounts" aria-label="مقادیر سریع">
+                                    <button type="button" data-amount="1">۱</button>
+                                    <button type="button" data-amount="10">۱۰</button>
+                                    <button type="button" data-amount="100">۱۰۰</button>
+                                    <button type="button" data-amount="1000">۱٬۰۰۰</button>
+                                </div>
+                            </div>
+
+                            <div class="swap-row"><span class="swap-line"></span><button type="button" class="swap-button" id="swap" aria-label="جابه‌جایی ارز مبدأ و مقصد" title="جابه‌جایی ارزها">⇅</button><span class="swap-line"></span></div>
+
+                            <div class="currency-block target-block">
+                                <div class="field-label"><label for="result">مقدار دریافتی</label><span>به ارز مقصد</span></div>
+                                <div class="currency-field target-field">
+                                    <div class="currency-select-wrap">
+                                        <img id="icoTo" class="coin-icon" src="" alt="" />
+                                        <select id="to" aria-label="انتخاب ارز مقصد"><option>در حال بارگذاری…</option></select>
+                                        <span class="select-chevron">⌄</span>
+                                    </div>
+                                    <div class="amount-wrap result-wrap"><input id="result" type="text" readonly placeholder="—" aria-label="مقدار تبدیل‌شده" /><span id="toSymbol" class="amount-symbol">ETH</span></div>
+                                </div>
+                            </div>
+
+                            <div class="rate-summary">
+                                <div class="rate-summary-top"><span class="rate-led"></span><span>نرخ تبدیل تخمینی</span><span class="rate-basis">USD</span></div>
+                                <strong id="rateTxt" class="rate-number">برای دریافت نرخ، منتظر بمانید…</strong>
+                                <small>نرخ‌ها بر اساس قیمت بازار هستند و ممکن است تغییر کنند.</small>
+                            </div>
+                            <div id="err" class="error-message" role="alert" aria-live="polite"></div>
+                            <button id="go" type="button" class="convert-button"><span>تبدیل ارز</span><span class="button-arrow">←</span></button>
+                        </div>
+                        <div class="secure-note"><span>ⓘ</span> این ابزار فقط محاسبهٔ نرخ را انجام می‌دهد و تراکنشی ثبت نمی‌کند.</div>
+                    </section>
+
+                    <aside class="side-column">
+                        <section class="panel market-panel">
+                            <div class="side-panel-heading"><div><span class="panel-kicker">LIVE RATE</span><h3>خلاصه نرخ تبدیل</h3></div><span class="live-pill"><i></i> زنده</span></div>
+                            <div class="rate-pair"><div class="pair-coins"><img id="pairFromIcon" src="" alt="" /><span class="pair-slash">/</span><img id="pairToIcon" src="" alt="" /></div><div class="pair-names"><strong id="pairLabel">BTC / ETH</strong><small id="pairName">Bitcoin / Ethereum</small></div></div>
+                            <div class="market-rate"><small>۱ واحد مبدأ برابر است با</small><strong id="singleRate">—</strong><span id="singleRateSymbol">واحد مقصد</span></div>
+                            <div class="market-divider"></div>
+                            <div class="market-info-row"><span>قیمت مبدأ به دلار</span><b id="fromUsd">—</b></div>
+                            <div class="market-info-row"><span>قیمت مقصد به دلار</span><b id="toUsd">—</b></div>
+                            <div class="market-info-row"><span>تغییر ۲۴ ساعته مبدأ</span><b id="fromChange" class="neutral">—</b></div>
+                            <div class="market-info-row"><span>تغییر ۲۴ ساعته مقصد</span><b id="toChange" class="neutral">—</b></div>
+                        </section>
+
+                        <section class="tip-card">
+                            <div class="tip-icon">✦</div>
+                            <div><strong>نکتهٔ تبدیل</strong><p>برای نتیجهٔ دقیق‌تر، قبل از تصمیم‌گیری قیمت و نوسان بازار را بررسی کن.</p></div>
+                        </section>
+                    </aside>
+                </div>
+
+                <section class="panel history-panel" id="history">
+                    <div class="history-heading"><div><span class="panel-kicker">RECENT ACTIVITY</span><h2>تبدیل‌های اخیر همین صفحه</h2></div><span class="history-subtitle">فقط در این نشست مرورگر</span></div>
+                    <div class="table-scroll"><table><thead><tr><th>جفت ارز</th><th>مقدار مبدأ</th><th>مقدار مقصد</th><th>نرخ تبدیل</th><th>زمان</th></tr></thead><tbody id="historyRows"><tr class="empty-row"><td colspan="5">هنوز تبدیلی ثبت نشده است. اولین تبدیل را انجام بده.</td></tr></tbody></table></div>
+                </section>
+                <footer class="page-footer"><span>© کریپتو اکسچنج</span><span>نمایش نرخ تخمینی · بدون انجام تراکنش</span></footer>
+            </main>
+        </div>
+    </div>
+
+    <script src="~/theme/crypto_converter_page/converter-page.js"></script>
+</body>
+</html>
