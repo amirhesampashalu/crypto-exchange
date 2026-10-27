@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppName" xml:space="preserve">
+    <value>تبدیل ارز دیجیتال</value>
+  </data>
+  <data name="Tagline" xml:space="preserve">
+    <value>تبدیل سریع و دقیق</value>
+  </data>
+  <data name="NavHome" xml:space="preserve">
+    <value>خانه</value>
+  </data>
+  <data name="NavConverter" xml:space="preserve">
+    <value>مبدل</value>
+  </data>
+  <data name="NavFavorites" xml:space="preserve">
+    <value>علاقه‌مندی‌ها</value>
+  </data>
+  <data name="NavSettings" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="LivePrices" xml:space="preserve">
+    <value>قیمت‌های لحظه‌ای</value>
+  </data>
+  <data name="DataSource" xml:space="preserve">
+    <value>منبع داده: CoinGecko</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>جستجوی ارز...</value>
+  </data>
+  <data name="SearchAria" xml:space="preserve">
+    <value>جستجوی ارز دیجیتال</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>مهمان</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>خوش آمدید</value>
+  </data>
+  <data name="HeroLine1" xml:space="preserve">
+    <value>ارزهای دیجیتال را</value>
+  </data>
+  <data name="HeroLine2" xml:space="preserve">
+    <value>سریع و دقیق تبدیل کنید</value>
+  </data>
+  <data name="HeroDesc" xml:space="preserve">
+    <value>با قیمت‌های زنده بازار، هر ارز دیجیتال را در چند ثانیه به ارز دیگر تبدیل کنید.</value>
+  </data>
+  <data name="LastUpdate" xml:space="preserve">
+    <value>آخرین به‌روزرسانی:</value>
+  </data>
+  <data name="LivePrice" xml:space="preserve">
+    <value>قیمت زنده</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>از</value>
+  </data>
+  <data name="FromCoinAria" xml:space="preserve">
+    <value>ارز مبدأ</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>مقدار</value>
+  </data>
+  <data name="SwapAria" xml:space="preserve">
+    <value>جابه‌جایی ارزها</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>به</value>
+  </data>
+  <data name="ToCoinAria" xml:space="preserve">
+    <value>ارز مقصد</value>
+  </data>
+  <data name="ConvRate" xml:space="preserve">
+    <value>نرخ تبدیل</value>
+  </data>
+  <data name="Convert" xml:space="preserve">
+    <value>تبدیل</value>
+  </data>
+  <data name="GlobalMarket" xml:space="preserve">
+    <value>بازار جهانی</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>در حال بارگذاری...</value>
+  </data>
+  <data name="ChartAria" xml:space="preserve">
+    <value>نمودار نرخ</value>
+  </data>
+  <data name="High" xml:space="preserve">
+    <value>بیشترین</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>کمترین</value>
+  </data>
+  <data name="RangeChange" xml:space="preserve">
+    <value>تغییر بازه</value>
+  </data>
+  <data name="Popular" xml:space="preserve">
+    <value>ارزهای محبوب</value>
+  </data>
+  <data name="RecentRates" xml:space="preserve">
+    <value>نرخ‌های اخیر</value>
+  </data>
+  <data name="Pair" xml:space="preserve">
+    <value>جفت‌ارز</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>نرخ</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>تغییر</value>
+  </data>
+  <data name="HistRates" xml:space="preserve">
+    <value>نرخ‌های تاریخی</value>
+  </data>
+  <data name="HistDesc" xml:space="preserve">
+    <value>نمودار تغییرات نرخ را در بازه‌های زمانی مختلف ببینید.</value>
+  </data>
+  <data name="ViewChart" xml:space="preserve">
+    <value>مشاهده نمودار</value>
+  </data>
+  <data name="TopCoins" xml:space="preserve">
+    <value>ارزهای برتر</value>
+  </data>
+  <data name="Coin" xml:space="preserve">
+    <value>ارز</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>قیمت</value>
+  </data>
+  <data name="Change24h" xml:space="preserve">
+    <value>تغییر ۲۴ ساعته</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>داده‌ای یافت نشد.</value>
+  </data>
+  <data name="TotalCap" xml:space="preserve">
+    <value>ارزش کل بازار</value>
+  </data>
+  <data name="Vol24" xml:space="preserve">
+    <value>حجم ۲۴ ساعته</value>
+  </data>
+  <data name="BtcDom" xml:space="preserve">
+    <value>تسلط بیت‌کوین</value>
+  </data>
+  <data name="RateLimit" xml:space="preserve">
+    <value>تعداد درخواست‌ها زیاد است. لطفاً چند لحظه بعد دوباره تلاش کنید.</value>
+  </data>
+  <data name="PricesFailed" xml:space="preserve">
+    <value>دریافت قیمت‌ها ناموفق بود.</value>
+  </data>
+  <data name="NoCoinFound" xml:space="preserve">
+    <value>ارزی پیدا نشد.</value>
+  </data>
+  <data name="InvalidAmount" xml:space="preserve">
+    <value>مقدار واردشده معتبر نیست.</value>
+  </data>
+  <data name="ConvertFailed" xml:space="preserve">
+    <value>تبدیل ناموفق بود. دوباره تلاش کنید.</value>
+  </data>
+  <data name="ChartLoading" xml:space="preserve">
+    <value>در حال بارگذاری نمودار...</value>
+  </data>
+  <data name="ChartFailed" xml:space="preserve">
+    <value>دریافت نمودار ناموفق بود.</value>
+  </data>
+  <data name="MarketUnavailable" xml:space="preserve">
+    <value>اطلاعات بازار در دسترس نیست.</value>
+  </data>
+</root>

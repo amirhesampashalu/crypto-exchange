@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppName" xml:space="preserve">
+    <value>Crypto Exchange</value>
+  </data>
+  <data name="Tagline" xml:space="preserve">
+    <value>Fast and accurate conversion</value>
+  </data>
+  <data name="NavHome" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="NavConverter" xml:space="preserve">
+    <value>Converter</value>
+  </data>
+  <data name="NavFavorites" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="NavSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="LivePrices" xml:space="preserve">
+    <value>Live prices</value>
+  </data>
+  <data name="DataSource" xml:space="preserve">
+    <value>Data source: CoinGecko</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Search coins...</value>
+  </data>
+  <data name="SearchAria" xml:space="preserve">
+    <value>Search cryptocurrency</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Guest</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="HeroLine1" xml:space="preserve">
+    <value>Convert cryptocurrencies</value>
+  </data>
+  <data name="HeroLine2" xml:space="preserve">
+    <value>fast and accurately</value>
+  </data>
+  <data name="HeroDesc" xml:space="preserve">
+    <value>Convert any cryptocurrency to another in seconds using live market prices.</value>
+  </data>
+  <data name="LastUpdate" xml:space="preserve">
+    <value>Last update:</value>
+  </data>
+  <data name="LivePrice" xml:space="preserve">
+    <value>Live price</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="FromCoinAria" xml:space="preserve">
+    <value>Source coin</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="SwapAria" xml:space="preserve">
+    <value>Swap coins</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="ToCoinAria" xml:space="preserve">
+    <value>Target coin</value>
+  </data>
+  <data name="ConvRate" xml:space="preserve">
+    <value>Conversion rate</value>
+  </data>
+  <data name="Convert" xml:space="preserve">
+    <value>Convert</value>
+  </data>
+  <data name="GlobalMarket" xml:space="preserve">
+    <value>Global market</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="ChartAria" xml:space="preserve">
+    <value>Rate chart</value>
+  </data>
+  <data name="High" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="RangeChange" xml:space="preserve">
+    <value>Range change</value>
+  </data>
+  <data name="Popular" xml:space="preserve">
+    <value>Popular coins</value>
+  </data>
+  <data name="RecentRates" xml:space="preserve">
+    <value>Recent rates</value>
+  </data>
+  <data name="Pair" xml:space="preserve">
+    <value>Pair</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="HistRates" xml:space="preserve">
+    <value>Historical rates</value>
+  </data>
+  <data name="HistDesc" xml:space="preserve">
+    <value>See how the rate changed over different time ranges.</value>
+  </data>
+  <data name="ViewChart" xml:space="preserve">
+    <value>View chart</value>
+  </data>
+  <data name="TopCoins" xml:space="preserve">
+    <value>Top coins</value>
+  </data>
+  <data name="Coin" xml:space="preserve">
+    <value>Coin</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Change24h" xml:space="preserve">
+    <value>24h change</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>No data found.</value>
+  </data>
+  <data name="TotalCap" xml:space="preserve">
+    <value>Total market cap</value>
+  </data>
+  <data name="Vol24" xml:space="preserve">
+    <value>24h volume</value>
+  </data>
+  <data name="BtcDom" xml:space="preserve">
+    <value>BTC dominance</value>
+  </data>
+  <data name="RateLimit" xml:space="preserve">
+    <value>Too many requests. Please try again in a moment.</value>
+  </data>
+  <data name="PricesFailed" xml:space="preserve">
+    <value>Failed to load prices.</value>
+  </data>
+  <data name="NoCoinFound" xml:space="preserve">
+    <value>No coin found.</value>
+  </data>
+  <data name="InvalidAmount" xml:space="preserve">
+    <value>The entered amount is not valid.</value>
+  </data>
+  <data name="ConvertFailed" xml:space="preserve">
+    <value>Conversion failed. Please try again.</value>
+  </data>
+  <data name="ChartLoading" xml:space="preserve">
+    <value>Loading chart...</value>
+  </data>
+  <data name="ChartFailed" xml:space="preserve">
+    <value>Failed to load the chart.</value>
+  </data>
+  <data name="MarketUnavailable" xml:space="preserve">
+    <value>Market data is unavailable.</value>
+  </data>
+</root>

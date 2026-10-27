@@ -1,9 +1,26 @@
-using crypto_exchange.Services;
+﻿using crypto_exchange.Services;
+using Microsoft.AspNetCore.Localization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddLocalization(o => o.ResourcesPath = "Resources");
+
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization();
+
+var cultures = new[] { "fa", "en" };
+builder.Services.Configure<RequestLocalizationOptions>(o =>
+{
+    o.SetDefaultCulture("fa")
+     .AddSupportedCultures(cultures)
+     .AddSupportedUICultures(cultures);
+
+    // فقط از cookie استفاده شود، نه از زبان مرورگر
+    o.RequestCultureProviders.Clear();
+    o.RequestCultureProviders.Add(new CookieRequestCultureProvider());
+});
 
 builder.Services.AddMemoryCache();
 
@@ -37,12 +54,15 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseRequestLocalization();
+
 app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapStaticAssets();
-    
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")

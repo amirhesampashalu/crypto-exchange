@@ -3,6 +3,9 @@ const API_BASE = '/api/crypto';
 const API_CACHE_MS = 120_000;
 const API_COOLDOWN_MS = 60_000;
 
+// Localized texts injected by Converter.cshtml (window.I18N)
+const L10N = window.I18N || {};
+
 const apiCache = new Map();
 const pendingRequests = new Map();
 
@@ -105,8 +108,8 @@ async function init() {
 
         showErr(
             e.message.includes('429')
-                ? 'محدودیت درخواست API؛ کمی صبر کنید و دوباره تلاش کنید.'
-                : 'دریافت قیمت‌ها ممکن نشد. چند لحظه دیگر دوباره تلاش کنید.'
+                ? L10N.rateLimit
+                : L10N.pricesFailed
         );
 
         return;
@@ -172,7 +175,7 @@ function renderTables(filter = '') {
                 <td class="n">${fmt(c.current_price)}</td>
                 <td class="n">${pct(c.price_change_percentage_24h)}</td>
             </tr>
-        `).join('') || '<tr><td colspan="3">ارزی پیدا نشد.</td></tr>';
+        `).join('') || `<tr><td colspan="3">${L10N.noCoin}</td></tr>`;
     }
 
     const pop = $('#pop');
@@ -240,7 +243,7 @@ async function convert() {
     const amount = parseFloat(amountEl.value);
 
     if (!Number.isFinite(amount) || amount < 0) {
-        showErr('یک مقدار معتبر وارد کنید.');
+        showErr(L10N.invalidAmount);
         return;
     }
 
@@ -284,8 +287,8 @@ async function convert() {
 
         showErr(
             e.message.includes('429')
-                ? 'محدودیت درخواست API؛ کمی صبر کنید و دوباره تلاش کنید.'
-                : 'تبدیل انجام نشد. دوباره تلاش کنید.'
+                ? L10N.rateLimit
+                : L10N.convertFailed
         );
     }
 }
@@ -312,7 +315,7 @@ async function loadChart() {
         chImg.src = by(from)?.image || '';
     }
 
-    draw('در حال دریافت اطلاعات نمودار…');
+    draw(L10N.chartLoading);
 
     try {
         const [a, b] = await Promise.all([
@@ -387,8 +390,8 @@ async function loadChart() {
 
         draw(
             e.message.includes('429')
-                ? 'محدودیت درخواست API؛ کمی صبر کنید و دوباره امتحان کنید.'
-                : 'دریافت اطلاعات نمودار ناموفق بود.'
+                ? L10N.rateLimit
+                : L10N.chartFailed
         );
     }
 }
@@ -420,7 +423,7 @@ function draw(msg) {
 
     if (msg || series.length < 2) {
         g.textAlign = 'center';
-        g.fillText(msg || 'در حال بارگذاری…', W / 2, H / 2);
+        g.fillText(msg || L10N.loading, W / 2, H / 2);
         return;
     }
 
@@ -538,17 +541,17 @@ async function loadGlobal() {
 
         if (globalTxt) {
             globalTxt.innerHTML =
-                `ارزش کل بازار: <b class="ltr">$${cap.toFixed(2)}T</b><br>` +
-                `حجم معاملات ۲۴ساعته: <b class="ltr">$${vol.toFixed(0)}B</b><br>` +
-                `تسلط بیت‌کوین: <b class="ltr">${btc.toFixed(1)}%</b>`;
+                `${L10N.totalCap}: <b class="ltr">$${cap.toFixed(2)}T</b><br>` +
+                `${L10N.vol24}: <b class="ltr">$${vol.toFixed(0)}B</b><br>` +
+                `${L10N.btcDom}: <b class="ltr">${btc.toFixed(1)}%</b>`;
         }
     } catch (e) {
         console.error('Loading global market failed:', e);
 
         if (globalTxt) {
             globalTxt.textContent = e.message.includes('429')
-                ? 'محدودیت درخواست API؛ کمی صبر کنید و دوباره تلاش کنید.'
-                : 'اطلاعات بازار در دسترس نیست.';
+                ? L10N.rateLimit
+                : L10N.marketUnavailable;
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using crypto_exchange.Models;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace crypto_exchange.Controllers
@@ -54,7 +55,24 @@ namespace crypto_exchange.Controllers
                     ?? HttpContext.TraceIdentifier
             });
         }
-   
+
+
+        [HttpGet]
+        public IActionResult SetLanguage(string culture, string returnUrl = "/")
+        {
+            if (culture != "fa" && culture != "en")
+                culture = "fa";
+
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1), IsEssential = true });
+
+            if (!Url.IsLocalUrl(returnUrl))
+                returnUrl = "/";
+
+            return LocalRedirect(returnUrl);
+        }
 
     }
 }
